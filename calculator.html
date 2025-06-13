@@ -41,7 +41,7 @@
         </tr>
 
         <tr>
-            <td colspan="4">=</td>
+            <td colspan="4" onclick="equalsBtnPressed()">=</td>
         </tr>
     </table>
 
@@ -76,6 +76,31 @@
             currentOperator = operator;
             value1 = parseInt(document.getElementById("inputBox").value);
             newLine =  true;
+        }
+
+        //event handler for equals operator
+        function equalsBtnPressed(){
+            var value2 = parseInt(document.getElementById("inputBox").value)
+            var finalTotal;
+
+            switch(currentOperator){
+                case '+':
+                    finalTotal = value1 + value2;
+                    break;
+                case '-':
+                    finalTotal = value1 - value2;
+                    break;
+                case '/':
+                    finalTotal = value1 / value2;
+                    break;
+                case 'x':
+                    finalTotal = value1 * value2;
+                    break;
+                
+            }
+            document.getElementById("inputBox").value = finalTotal;
+            value1 = 0;
+            newLine = true;
         }
     </script>
 </body>
